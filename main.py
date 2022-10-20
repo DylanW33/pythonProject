@@ -1,7 +1,9 @@
 from GPU import GPU
 from CPU import CPU
-
+from PWRSPL import PWRSPL
 def main():
+    AX1600I = PWRSPL(name='AX1600I', model='ATX', brand='Corsair', msrp=609.99, tdp=1600,
+                           release_date='04-18-2018')
 
     ryzen_5900x = CPU(name='Ryzen 9', model='5900x', brand='AMD', msrp=380.00, tdp=105, release_date='11-05-2020')
 
@@ -10,15 +12,17 @@ def main():
     looper = True
     while looper:
         print('Choose from the following:')
-        selection = int(input('\n1 GPU List\n2 CPU List\n3 Say Bye\n4 Quit\nSelection: '))
+        selection = int(input('\n1 GPU List\n2 CPU List\n3 Power Supply List\n4 Say Bye\n5 Quit\nSelection:'))
 
         if selection == 1:
             print(rtx_4090.get_all())
         elif selection == 2:
             print(ryzen_5900x.get_all())
         elif selection == 3:
-            print('Say Bye')
+            print(PWRSPL.get_all())
         elif selection == 4:
+            print('Say Bye')
+        elif selection == 5:
             looper = False
 
 
